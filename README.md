@@ -1,7 +1,3 @@
-Of course! Based on the provided project report, here is a comprehensive and well-structured README file suitable for a GitHub repository.
-
----
-
 # NET3207: Network Management - LAN Configuration Project
 
 
