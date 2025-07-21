@@ -1,0 +1,89 @@
+enable
+show flash 
+delete vlan.dat
+erase startup-config
+reload
+
+
+configure terminal
+vlan 100
+name Vlan100
+vlan 200
+name Vlan200
+vlan 300
+name Vlan300
+exit
+
+
+configure terminal
+
+
+interface F0/1
+description Web server
+no shutdown
+switchport mode access
+switchport access vlan 100
+exit
+
+
+interface F0/2
+description Phone 100
+no shutdown
+switchport mode access
+switchport access vlan 100
+exit
+
+
+interface F0/3
+description Phone 2
+no shutdown
+switchport mode access
+switchport access vlan 200
+exit
+
+
+interface F0/4
+description PBX server
+no shutdown
+switchport mode access
+switchport access vlan 200
+exit
+
+
+interface F0/5
+description Workstation
+no shutdown
+switchport mode access
+switchport access vlan 200
+exit
+
+
+interface F0/6
+description CCTV
+no shutdown
+switchport mode access
+switchport access vlan 300
+exit
+
+interface F0/7
+description MikroTik
+no shutdown
+switchport mode access
+switchport access vlan 300
+exit
+
+
+interface F0/24
+description Trunk link
+no shutdown
+switchport mode trunk
+exit
+
+
+copy running-config startup-config
+
+! Verify configuration
+show run
+show vlan brief
+show ip interface brief
+show ip interface trunk

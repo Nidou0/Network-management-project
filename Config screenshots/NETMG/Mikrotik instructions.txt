@@ -1,0 +1,23 @@
+MiKROTiK iNSTRUCTiONS
+
+1- reset the router, connect router to the switch, connect to the same vlan as the pc to configure it.
+2- install Winbox.
+3- scan for the router in the neighbours section and connect to it. 
+4- assign static ip address
+5- go to ip > Addresses 
+6- add an address from vlan 300 to the router, e.g "192.168.13.25" add gateway "192.168.13.120".
+7- configure NAT 
+8- go to ip > Firewall > NAT > General, set interface to lte1 (dongle).
+9- set action to masquerade.
+10- Configure static routes
+11- iP > routes > route list, add the gateway ip of both vlans and set the gateway to ether2. 
+VLAN100 = 192.168.13.105
+VLAN200 = 192.168.13.113 
+12- a default address for the dongle must be set, add a new route set ype tp unicast and distance to 2.
+0.0.0.0/0 , 192.168.8.0 (dongle gateway ip) 
+13- configure the dongel static routing to the router 
+en
+conf term
+ip route 0.0.0.0 0.0.0.0 192.168.13.25
+
+14- TEST CONNECTiViTY

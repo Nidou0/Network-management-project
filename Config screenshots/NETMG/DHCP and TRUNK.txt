@@ -1,0 +1,54 @@
+configure terminal
+
+
+ip dhcp pool VLAN100
+network 192.168.13.104 255.255.255.248
+default-router 192.168.13.105
+dns-server 8.8.8.8
+exit
+
+
+ip dhcp pool VLAN200
+network 192.168.13.112 255.255.255.248
+default-router 192.168.13.113
+dns-server 8.8.8.8
+exit
+
+
+ip dhcp pool VLAN300
+network 192.168.13.120 255.255.255.248
+default-router 192.168.13.121
+dns-server 8.8.8.8
+exit
+
+
+ip dhcp excluded-address 192.168.13.105
+ip dhcp excluded-address 192.168.13.113
+ip dhcp excluded-address 192.168.13.121
+end
+
+
+copy running-config startup-config
+
+interface g0/0
+no shutdown
+
+
+interface g0/0.100
+encapsulation dot1Q 100
+ip address 192.168.13.105 255.255.255.248
+
+
+interface g0/0.200
+encapsulation dot1Q 200
+ip address 192.168.13.113 255.255.255.248
+
+
+interface g0/0.300
+encapsulation dot1Q 300
+ip address 192.168.13.121 255.255.255.248
+
+ip routing
+
+end
+copy running-config startup-config

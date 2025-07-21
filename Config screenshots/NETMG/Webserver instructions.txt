@@ -1,0 +1,32 @@
+WEBSERVER CONFiGURATiON
+
+
+1- connect a pc to port 1 (webserver port) directly from the green port to the switch. 
+2- install XAMPP.
+3- got to htdocs and place the NETMG13 folder inside.
+4- find the assigned ip to the pc. (ipconfig) 
+5- run XAMPP and change config to Apache (http.conf).
+6- locate and open the http-conf file and add the listen command with the assigned ip address
+for example "listen 192.168.13.106". 
+7- configure virtual hosting
+8- locate the “httpd-vhosts.conf” file and open it found in xampp/apache/conf/extra.
+9- add domain names into windows setup
+10- locate hosts file at “C:\Windows\System32\drivers\etc”.
+11- add two line to the hosts file to point the domain names to the servers ip address (the pc's ip).
+192.168.13.106         Group13.local
+192.168.13.106         Topology.local
+12- configure port 80 on the firewall to accept the clients requests
+13 - open firewalls settings “Control Panel > Windows Firewall > Advanced settings” .
+14- go to inbound rules, locate any blocking rules placed on the apache http server and disable them.
+15- add new rule in the inbound rules, 
+	1- click custom
+	2- all programs
+	3- select TCP
+	4- local port = All ports, Remote port = 80
+	5- apply to all ip addresses
+	6- allow the connection 
+	7- remove public from the profile, and keep others checked
+	8- name it "G13WebServer" 
+16- test the webpage access on the other vlans. webpages can be accessed using the following urls
+Group13.local
+Topology.local 
