@@ -1,7 +1,4 @@
 NET3207: Network Management - LAN Configuration Project
-![alt text](https://img.shields.io/badge/University-Sunway-blue.svg)
-![alt text](https://img.shields.io/badge/Course-NET3207%20Network%20Management-green.svg)
-![alt text](https://img.shields.io/badge/status-completed-brightgreen)
 This repository contains the documentation and final report for the NET3207 Network Management coursework. This group project involved the design, configuration, and integration of a multi-service Local Area Network (LAN) using a variety of physical hardware and networking technologies.
 👥 Team Members
 Suhail Dorasamy
